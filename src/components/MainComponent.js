@@ -5,6 +5,7 @@ import LoginComponent from './LoginComponent';
 import SignUpComponent from './SignUpComponent';
 import Dashboard from './Dashboard';
 import AddWasteFood from './AddWasteFood';
+import ViewWasteFood from './ViewWasteFood';
 
 class MainComponent extends Component{
     render(){
@@ -15,6 +16,7 @@ class MainComponent extends Component{
                     <Route path="/signup" component={(props) => (<DashboardComponent {...props} children={<SignUpComponent/>} />) } />
                     <Route path="/dashboard" component={(props) => (<DashboardComponent {...props} children={<Dashboard/>} />) } />
                     <Route path="/add_waste_food" component={(props) => (<DashboardComponent {...props} children={<AddWasteFood/>} />) } />
+                    <Route path="/view_waste_food" component={(props) => (<DashboardComponent {...props} children={<ViewWasteFood/>} />) } />
                 </div>
             </Router>
         );

@@ -11,7 +11,7 @@ class AddWasteFood extends Component{
         super(props);
         this.state = {
             name: "",
-            type: "",
+            expiry: "",
             qty: 0
         }
     }
@@ -21,11 +21,11 @@ class AddWasteFood extends Component{
                 {(!this.props.user.logged_in) ? <Redirect to="/login" /> : null}
                 <h1>Add Waste Food</h1> <br />
                 <TextField fullWidth={true} hintText="Food Name" onChange={e => this.setState({ name: e.target.value })}/><br /><br />
-                <TextField fullWidth={true} hintText="Type" onChange={e => this.setState({ type: e.target.value })}/><br /><br />
+                <TextField fullWidth={true} hintText="Expiry" onChange={e => this.setState({ expiry: e.target.value })}/><br /><br />
                 <TextField fullWidth={true} hintText="Quantity" onChange={e => this.setState({ qty: e.target.value })}/><br /><br />
                 <RaisedButton label="Add Waste Food" onClick={() => this.props.add_waste_food(this.props.user.data.data.id, {
                     name: this.state.name,
-                    type: this.state.type,
+                    expiry: this.state.expiry,
                     quantity: this.state.qty
                 }) }/>
             </Paper>

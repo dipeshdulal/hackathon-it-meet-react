@@ -16,6 +16,7 @@ class DrawerComponent extends Component{
             login_menu = [
                 <MenuItem key={1} onClick={() => this.route_to("/dashboard")}> Dashboard </MenuItem>,
                 <MenuItem key={2} onClick={() => this.route_to("/add_waste_food")}> Add Waste Food </MenuItem>,
+                <MenuItem key={3} onClick={() => this.route_to("/view_waste_food")}> View Food </MenuItem>,
             ];
         }
         return (

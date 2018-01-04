@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import DrawerComponent from './DrawerComponent';
 import Snackbar from 'material-ui/Snackbar';
+import Dialog from 'material-ui/Dialog';
 
 class DashboardComponent extends Component {
     constructor(props){
@@ -22,13 +23,23 @@ class DashboardComponent extends Component {
                     open={this.props.snackbar.open}
                     message={(this.props.snackbar.message)? this.props.snackbar.message : ""} 
                     onRequestClose={this.props.close_snackbar}/>
+                <Dialog
+                    title={this.props.dialog.title}
+                    actions={this.props.dialog.actions}
+                    modal={true}
+                    open={this.props.dialog.open}
+                    onRequestClose={this.props.close_dialog} >
+                    {this.props.dialog.children}    
+                </Dialog>
             </div>
         );
     }
 }
 
 export default connect(store=>({
-    snackbar: store.snackbar
+    snackbar: store.snackbar,
+    dialog: store.dialog
 }), dispatch=>({
-    close_snackbar: () => dispatch({type: "SNACK_CLOSE" })
+    close_snackbar: () => dispatch({ type: "SNACK_CLOSE" }),
+    close_dialog: () => dispatch({ type: "DIALOG_CLOSE"})
 }))(DashboardComponent);
