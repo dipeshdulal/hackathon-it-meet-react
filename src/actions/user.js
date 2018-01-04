@@ -1,7 +1,6 @@
 import config from '../config';
 
 export const login = (dispatch, data) => {
-    let fd = new FormData();
     dispatch({type: "LOGGING_IN"});
     fetch(config.API_HOST_NAME + "/api/users/login", {
         headers: {"Content-Type" : "application/json"},
@@ -10,11 +9,13 @@ export const login = (dispatch, data) => {
     }).then(a => {
         if(a.ok){
             dispatch({type: "SNACK_OPEN", payload: { message: "Sign In Success :) "}});
-            dispatch({type: "LOGGED_IN", payload: {data} });
+            return a.json()
         }else{
             dispatch({type: "SNACK_OPEN", payload: { message: "Login Error! :/"}});
             dispatch({type: "LOGIN_ERROR"});
         }
+    }).then(a => {
+        dispatch({type: "LOGGED_IN", payload: {data: a} })
     }).catch(e => dispatch({type: "SNACK_OPEN", payload: { message: "Login Error! :/"}}));
     dispatch({type: "LOGGING_IN", payload: data});
 }

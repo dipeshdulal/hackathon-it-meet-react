@@ -9,7 +9,7 @@ import {Redirect} from 'react-router';
 class LoginComponent extends Component{
     constructor(props){
         super(props);
-        this.state = {username: "", password: ""};
+        this.state = {username: "dipesh", password: "password"};
     }
 
     render(){
@@ -18,8 +18,8 @@ class LoginComponent extends Component{
                 {(this.props.user.logged_in === true) ? <Redirect to="/dashboard" /> : null}
                 <div style={{textAlign: "center"}} >
                     <h1>Login</h1>
-                    <TextField hintText="Username" onChange={e => this.setState({username: e.target.value}) }/><br />
-                    <TextField hintText="Password" type="password" onChange={e => this.setState({password: e.target.value})}/><br />
+                    <TextField hintText="Username" defaultValue="dipesh" onChange={e => this.setState({username: e.target.value}) }/><br />
+                    <TextField hintText="Password" type="password" defaultValue="password" onChange={e => this.setState({password: e.target.value})}/><br />
                     <RaisedButton label="Login" onClick={() => this.props.login({ name: this.state.username, password: this.state.password })}/><br />
                 </div>
             </Paper>
