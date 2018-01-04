@@ -7,7 +7,7 @@ class CarEmissionChart extends Component{
     render(){
         // console.log(this.props.emission.emission);
         return (
-            <BarChart width={800} height={300} data={(this.props.emission) ? this.props.emission.emission : []}
+            <BarChart width={900} height={300} data={(this.props.emission) ? this.props.emission.emission : []}
                     margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                 <XAxis dataKey="time"/>
                 <YAxis/>

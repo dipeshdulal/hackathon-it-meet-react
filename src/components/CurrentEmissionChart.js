@@ -4,9 +4,6 @@ import CircularProgress from 'material-ui/CircularProgress';
 import Paper from 'material-ui/Paper';
 
 class current_emission_chart extends Component{
-    constructor(props){
-        super(props);
-    }
     render(){
         let style = {
             background: "white",

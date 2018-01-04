@@ -42,4 +42,5 @@ export default connect(store=>({
 }), dispatch=>({
     close_snackbar: () => dispatch({ type: "SNACK_CLOSE" }),
     close_dialog: () => dispatch({ type: "DIALOG_CLOSE"})
-}))(DashboardComponent);
+})
+)(DashboardComponent);

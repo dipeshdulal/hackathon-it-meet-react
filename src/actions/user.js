@@ -39,3 +39,12 @@ export const sign_up = (dispatch, data) => {
         dispatch({type: "SNACK_OPEN", payload: { message: "Sign Up Error :/" }});
     });
 }
+
+export const get_dashboard_data = (dispatch, user_id) => {
+    // fetch and dispatch data received
+    fetch(config.API_HOST_NAME + "/api/reward/" + user_id, {
+        method: "get"
+    }).then(a => a.json()).then(a => {
+        dispatch({ type: "DASHBOARD_DATA_RECEIVED", payload: { dashboard: a } })
+    }).catch(e => console.log(e));
+}
